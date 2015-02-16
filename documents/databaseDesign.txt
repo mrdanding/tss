@@ -1,7 +1,6 @@
 user:
-userId: integer (pk)
-username: string（unique)
-password: integer
+username: string（unique) (pk)
+password: string
 realName: string
 email:string
 gender: integer (1 male 2 female)
@@ -13,28 +12,27 @@ admin:
 
 
 student:
-username: string (pk) foreign key
+studentName: string (pk) foreign key
 grade: string
 
 
 teacher:
-username:string(pk) foreign key
+teacherName:string(pk) foreign key
 
 
 teachingAssitant:
-id: integer (pk)
-username:string  (foreign key) 
-courseId:integer (foreign key)
+taName:string  (foreign key) pk
+courseId:string (foreign key)
 
-teachingmanager
-username:string (pk) foreign key
+teachingManager
+teachingManagerName:string (pk) foreign key
 
 
 
 
 
 course:
-courseId: integer (pk)（e.g. c0101)
+courseId: string (pk)（e.g. c0101)
 courseName: string(课程名)
 description:string(课程描述）
 semester: string
@@ -44,16 +42,16 @@ initializationDeadline: date (指定助教和选课学生的deadline)
 studentCourseSelection:
 id: integer (pk)
 studentName: string (student’s username)
-courseId: integer 
+courseId: string 
 
 teacherCourseSelection:
 id: integer (pk)
 teacherName: string (teacher’s username)
-courseId: integer 
+courseId: string 
 
 assignment
-id:integer(pk)
-courseId:integer
+assignmentId:integer(pk)
+courseId:string
 number:integer (第几次作业)
 description:string（作业内容描述）
 submissionDeadline:date(y-m-d-h-m-s)
