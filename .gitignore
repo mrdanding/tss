@@ -1,0 +1,9 @@
+# made by tony
+
+# ignore build files
+/build/
+
+# ingore eclipse default files
+.classpath
+.settings
+.project
