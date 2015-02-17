@@ -21,7 +21,8 @@ teacherName:string(pk) foreign key
 
 
 teachingAssitant:
-taName:string  (foreign key) pk
+id: string pk （此处改动）
+taName:string  (foreign key) 
 courseId:string (foreign key)
 
 teachingManager
