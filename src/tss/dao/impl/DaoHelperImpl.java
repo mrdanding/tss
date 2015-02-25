@@ -16,16 +16,28 @@ import tss.dao.DaoHelper;
 
 public class DaoHelperImpl implements DaoHelper {
 	private static DaoHelperImpl baseDao = new DaoHelperImpl();
+	
+	private Properties properties = new Properties();
 
 	private InitialContext jndiContext = null;
 	private Connection connection = null;
 	private DataSource datasource = null;
 
 	private DaoHelperImpl() {
+		jndiContext = null;
+		 connection = null;
+		 datasource = null;
+		properties.put(javax.naming.Context.PROVIDER_URL, "jnp:///");
+		properties.put(javax.naming.Context.INITIAL_CONTEXT_FACTORY,
+				"org.apache.naming.java.javaURLContextFactory");
 		try {
 			jndiContext = new InitialContext();
-			datasource = (DataSource) jndiContext.lookup("java:comp/env/jdbc/financial_system");
+			datasource = (DataSource) jndiContext
+					.lookup("java:comp/env/jdbc/tss");
+			System.out.println("got context");
+			System.out.println("About to get ds");
 		} catch (NamingException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
